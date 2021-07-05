@@ -1,0 +1,41 @@
+# load iptables settings from file
+iptables-restore < /path/to/rule.v4
+
+# save iptable to file
+iptables-save > /path/to/rule.v4
+
+
+sudo iptables-restore < /etc/iptabs/rule.v4
+sudo ip6tables-restore < /etc/iptabs/rule.v6
+
+#additional package for debian to save iptables
+sudo apt-get install iptables-persistent
+
+
+
+# Просмотр загруженных модулей: 
+lsmod | grep -E '^ip|^nf' | sort
+
+# sew iptables setting 
+sudo iptables -n -L -v --line-numbers
+sudo ip6tables -n -L -v --line-numbers
+
+# MAC address
+ip a
+ip a | grep ether | gawk '{print $2}'
+
+
+#changer MAC
+#https://itsfoss.com/change-mac-address-linux/
+
+sudo apt install macchanger
+
+# like example sudo macchanger -r name_you_device
+
+sudo macchanger -r enp0s25
+
+#in crontrab
+sudo gedit /etc/crontab
+@reboot root iptables-restore < /etc/iptabs/rule.v4
+@reboot root ip6tables-restore < /etc/iptabs/rule.v6
+@reboot root macchanger -r enp0s25
