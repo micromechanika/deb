@@ -1,0 +1,10 @@
+#with log file
+#wget -i urls.txt -c -o download_apps.txt
+
+#with progress bar
+
+wget -i urls.txt -c --progress=bar
+
+su
+
+tar -xvf tsetup.2.5.1.tar.xz -C /opt/ && cd /opt/Telegram/ && ./Telegram && dpkg -i viber.deb && dpkg -i zoom_amd64.deb && dpkg -i skypeforlinux-64.deb && dpkg -i google-chrome-stable_current_amd64.deb

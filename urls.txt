@@ -1,0 +1,6 @@
+#download
+https://updates.tdesktop.com/tlinux/tsetup.2.8.1.tar.xz
+https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
+https://zoom.us/client/latest/zoom_amd64.deb
+https://go.skype.com/skypeforlinux-64.deb
+https://dl.google.com/lg/dlinux/direct/google-chrome-stable_current_amd64.deb
