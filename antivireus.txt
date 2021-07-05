@@ -1,0 +1,23 @@
+#install 
+sudo apt-get install clamav
+sudo apt-get install clamav-daemon
+sudo apt-get install libclamunrar6
+
+clamscan --version
+
+#documentation
+https://www.clamav.net/documents/scanning#clamd
+
+#add changes to the clamd.conf
+sudo gedit /etc/clamav/clamd.conf
+
+OnAccessIncludePath /
+OnAccessPrevention yes
+OnAccessExcludeUname mmc
+
+#in cron tab add update DB viruses
+@weekly root  /usr/local/bin/freshclam --quiet
+@weekly root clamscan -r -i --log=antivirusReport.txt --bell --copy=/tmp/viruses /
+
+# scan system
+sudo clamscan -r -i --log=antivirusReport.txt --bell --copy=/tmp/viruses / 
